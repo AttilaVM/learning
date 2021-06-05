@@ -7,8 +7,12 @@
 
 /*
  * Fork a process
+ * Close the stdout (0) file in the child
+ * Open a new file wich will be the new 0 (lowest available file descriptor)
  * Set the environment in the child process
  * Run exec to replace the process image of the child
+ * The child process will print to the new file since it prints
+ * into 0 file descriptor
  *
  * Parent waits until the child machine state is zombie
  * Then the parent is terminated and a consequence its child too
