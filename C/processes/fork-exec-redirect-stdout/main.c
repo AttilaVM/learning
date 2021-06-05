@@ -7,12 +7,12 @@
 
 /*
  * Fork a process
- * Close the stdout (0) file in the child
- * Open a new file wich will be the new 0 (lowest available file descriptor)
+ * Close the stdout (1) file in the child
+ * Open a new file wich will be the new 1 (lowest available file descriptor)
  * Set the environment in the child process
  * Run exec to replace the process image of the child
  * The child process will print to the new file since it prints
- * into 0 file descriptor
+ * into 1 file descriptor
  *
  * Parent waits until the child machine state is zombie
  * Then the parent is terminated and a consequence its child too
@@ -34,9 +34,9 @@ int main(int argc, char *argv[]) {
         close(STDOUT_FILENO);
         // and open a file to redirect the stdout of the subprocess
         // it works without passing the new file descriptor of the new file
-        // because we closed the stdout which has the lowest file descriptor (0)
+        // because we closed the stdout which has the lowest file descriptor (1)
         // and newly opened files are associated with the lowest possible file
-        // descriptor and printf() by default writes into the 0 file descriptor
+        // descriptor and printf() by default writes into the 1 file descriptor
         // and echo (bash) or print (python) uses printf
         open("output.txt", O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU);
         char* bash_args[4];
