@@ -1,0 +1,2 @@
+MATCH (d:Disease)-[r]-(g:Gene)
+RETURN DISTINCT type(r)
