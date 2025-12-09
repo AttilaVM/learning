@@ -1,0 +1,13 @@
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+        "name": "Blunt RSA",
+        "type": "debugpy",
+        "JustMyCode": true,
+        "request": "launch",
+        "program": "./computer_science/rsa/blunt_rsa.py"
+        }
+    ]
+}
