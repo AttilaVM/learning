@@ -20,8 +20,8 @@ class Identity():
         return self.s 
 
     def derive_common_secret(self, z:int):
-        self.k = pow(z, self._x, self.N)
-        print(f"{self.name} derives common secret {self.k}")
+        self._k = pow(z, self._x, self.N)
+        print(f"{self.name} derives common secret {self._k}")
         
 
 def main():
