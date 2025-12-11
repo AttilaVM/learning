@@ -8,7 +8,7 @@ class Identity():
         self.g:int = g # generator value (public)
         self._x:int = None # private value
         self.s:int = None # shared value
-        self.k:int = None # common secret
+        self._k:int = None # common secret
 
     def generate_secret_value(self):
         self._x = random.randint(2, self.N - 2)
