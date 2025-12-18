@@ -30,6 +30,8 @@ subjectKeyIdentifier = hash
 authorityKeyIdentifier = keyid:always
 EOF
 
+# Generates a self-signed certificate
+# and the corresponding private key
 openssl req \
   -new \
   -x509 \
